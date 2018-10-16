@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="btn-area">  
+   <navigator url="/pages/test/test" hover-class="navigator-hover" open-type="switchTab">跳转test页面</navigator>  
+ </view>  
+  <view class="btn-area">  
+   <navigator url="/pages/douban/douban" hover-class="navigator-hover">跳转douban页面</navigator>  
+ </view> 
+   <view class="btn-area">  
+   <navigator url="/pages/weather/weather" hover-class="navigator-hover">跳转weather页面</navigator>  
+ </view> 
+   <view class="btn-area">  
+   <navigator url="/pages/todo/todo" hover-class="navigator-hover">跳转todo页面</navigator>  
+ </view> 
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <text>Test Color</text>
+  <text>Test now2</text>
+</view>

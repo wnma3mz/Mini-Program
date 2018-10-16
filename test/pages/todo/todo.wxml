@@ -1,0 +1,37 @@
+<!--pages/todo/todo.wxml-->
+<view class="container">
+  <view class="header">
+    <image class="plus" src="/images/todo/plus.png" bindtap='addTodoHandle' />
+    <input class="new-todo" value="{{ input }}" placeholder="写下你要做的..." auto-focus bindinput="inputChangeHandle" bindconfirm="addTodoHandle" />
+  </view>
+  <!-- 根据任务数判断展示哪段代码块 -->
+  <block wx:if="{{ todos.length }}">
+    <view class="todos">
+      <!--列表展示所有任务 -->
+      <view class="item{{ item.completed ? ' completed' : '' }}" wx:for="{{ todos }}" wx:key="{{ index }}" bindtap="toggleTodoHandle" data-index="{{ index }}">
+        <!-- 任务状态根据item项是否completed: success, todo: circle，根据状态定义icon type -->
+        <icon class="checkbox" type="{{ item.completed ? 'success' : 'circle' }}" />
+        <text class="name">{{ item.name }}</text>
+        <icon class="remove" type="clear" size="16" catchtap="removeTodoHandle" data-index="{{ index }}" />
+      </view>
+    </view>
+
+    <!-- <text wx:if="{{ leftCount }}">{{ leftCount }} {{ leftCount === 1 ? 'item' : 'items' }} left</text> -->
+    <view class="footer">
+      <text wx:if="{{ leftCount }}">还有{{ leftCount }}任务未完成 </text>
+    </view>
+    <view class="footer">
+      <text wx:if="{{ leftCount }}" class="btn" bindtap="toggleAllHandle">完成所有任务 </text>
+    </view>
+    <view class="footer">
+      <text class="btn" wx:if="{{ todos.length > leftCount }}" bindtap="clearCompletedHandle">清空已经完成的任务 </text>
+    </view>
+  
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="title">恭喜你，成功完成所有待办!</text>
+      <text class="content">现在已经没有任务了。</text>
+    </view>
+  </block>
+</view>

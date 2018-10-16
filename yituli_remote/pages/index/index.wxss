@@ -1,0 +1,27 @@
+/**index.wxss**/
+
+.rectangle {
+  width: 100vw;
+  height: 90vh;
+  border: 0px solid white;
+}
+
+.save {
+  bottom: 5%;
+  margin: 0 auto;
+  /* position: absolute; */
+  background-color: deepskyblue;
+  /* margin: 0px auto; */
+  /* display: block; */
+  border-radius: 10px;
+  color: white;
+  width: 40%;
+  margin-left: 30%;
+}
+
+.img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 0%;
+}
+

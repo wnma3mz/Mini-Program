@@ -1,0 +1,4 @@
+<!--index.wxml-->
+
+<canvas class='rectangle' canvas-id="myCanvas" />
+<button bindtap="save" class='save'>保存图片</button>

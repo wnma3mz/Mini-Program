@@ -1,0 +1,5 @@
+<!--pages/weather/weather.wxml-->
+<text>Weather</text>
+<view wx:for="{{weathers.weathers}}" wx:for-item="day">
+  {{day.date}}——{{day.weather}}
+</view>
